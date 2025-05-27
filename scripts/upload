@@ -9,7 +9,7 @@ do
 done
 
 echo "Adding and commiting changes.."
-git add .
+git add $repo
 git commit -m "update"
 
 echo "Pushing changes to github.."

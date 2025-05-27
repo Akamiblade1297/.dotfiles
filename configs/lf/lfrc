@@ -1,0 +1,129 @@
+# Basic Settings
+set ignorecase true
+set icons true
+set drawbox true
+set preview true
+set ratios 1:2:3
+set number true
+set info size:time
+set dircounts
+set scrolloff 10
+set ifs '\n'
+
+set cleaner ~/.config/lf/scripts/cleanerk
+set previewer ~/.config/lf/scripts/previewerk
+
+set shell zsh
+set shellopts '-eu'
+
+# Functions
+# cmd mkdir ${{
+# 	printf "Directory Name: "
+# 	read ans
+# 	mkdir $ans
+# }}
+#
+# cmd touch ${{
+# 	printf "File Name: "
+# 	read ans
+# 	touch $ans
+# }}
+
+cmd Rm ${{
+	a='n/a'
+	while [ $a = 'n/a' ]; do
+		printf "Delete all files in $f (y/n): "
+		read ans
+		if [ $ans = 'y' ]; then
+			a='y'
+			find $fx -mindepth 1 -delete
+		elif [ $ans = 'n' ]; then
+			a='n'
+		else
+			a='n/a'
+		fi
+	done
+}}
+
+cmd vim ${{
+	nvim $fx
+}}
+
+cmd chmod ${{
+	printf "Change Permissions of $f to: "
+	read ans
+	change=''
+	if [ -d $fx ]; then
+		change+='d'
+	else
+		change+='-'
+	fi
+	for (( i=1; i<=3; i++ )); do
+		if [ `expr substr $ans $i 1` = '7' ]; then
+			change+='rwx'
+		elif [ `expr substr $ans $i 1` = '6' ]; then
+			change+='rw-'
+		elif [ `expr substr $ans $i 1` = '5' ]; then
+			change+='r-x'
+		elif [ `expr substr $ans $i 1` = '4' ]; then
+			change+='r--'
+		elif [ `expr substr $ans $i 1` = '3' ]; then
+			change+='-wx'
+		elif [ `expr substr $ans $i 1` = '2' ]; then
+			change+='-w-'
+		elif [ `expr substr $ans $i 1` = '1' ]; then
+			change+='--x'
+		elif [ `expr substr $ans $i 1` = '0' ]; then
+			change+='---'
+		fi	
+	done
+	a='n/a'
+	while [ $a = 'n/a' ]; do
+		printf "Changing Permission to $change \nAre you sure?(y/n)"
+		read an
+		if [ $an = 'y' ]; then
+			a='y'
+			chmod $ans $fx
+		elif [ $an = 'n' ]; then
+			a='n'
+		else
+			a='n/a'
+		fi
+	done
+}}
+
+cmd extract ${{
+     set -f
+     case $f in
+         *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
+         *.tar.gz|*.tgz) tar xzvf $f;;
+         *.tar.xz|*.txz) tar xJvf $f;;
+         *.zip) unzip $f;;
+         *.rar) unrar x $f;;
+         *.7z) 7z x $f;;
+    esac
+}}
+
+cmd archive ${{
+    tar -cvf `${f}.tar` $f
+}}
+
+cmd root ${{
+	sudo lf -config /home/a97/.config/lf/lfrc
+}}
+
+cmd open-with %"$@" "$fx"
+
+# Mapping
+map am push %mkdir<space>
+map at push %touch<space>
+map d
+map dd cut
+map dD delete
+map dr Rm
+map av vim
+map ac chmod
+map ae extract
+map aE archive
+map x root
+map aT &kitty
