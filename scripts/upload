@@ -1,0 +1,18 @@
+#!/bin/bash
+repo=$HOME/.dotfiles/
+cfgs=$(cat $repo/configlist)
+
+echo "Copying configs to local repo.."
+for i in $cfgs
+do
+    cp -r $HOME/.config/$i $repo/configs
+done
+
+echo "Adding and commiting changes.."
+git add .
+git commit -m "update"
+
+echo "Pushing changes to github.."
+git push
+
+echo "Uploading completed"
