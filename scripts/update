@@ -1,0 +1,13 @@
+#!/bin/bash
+repo = $HOME/.dotfiles/
+
+echo "Pulling changes from github.."
+git pull
+
+echo "Copying configs to .config folder"
+for i in $(ls $repo/configs)
+do
+    cp -r $repo/configs/$i $HOME/.config
+done
+
+echo "\nUpdate completed!"
