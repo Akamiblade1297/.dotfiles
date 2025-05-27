@@ -1,5 +1,5 @@
 #!/bin/bash
-repo = $HOME/.dotfiles/
+repo=$HOME/.dotfiles/
 
 echo "Pulling changes from github.."
 git pull
@@ -10,4 +10,4 @@ do
     cp -r $repo/configs/$i $HOME/.config
 done
 
-echo "\nUpdate completed!"
+echo "Update completed!"
