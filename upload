@@ -7,6 +7,9 @@ echo "Copying configs to local repo.."
 for i in $cfgs
 do
     cp -r $HOME/.config/$i $repo/configs > /dev/null
+    if [ $i == 'hypr' ]; then
+        rm -rf $repo/configs/$i/device_relative/*
+    fi
 done
 
 echo "Copying bins to local repo.."
