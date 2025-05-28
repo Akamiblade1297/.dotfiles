@@ -1,0 +1,21 @@
+#!/bin/bash
+repo=$(dirname $0)
+
+echo "Pulling changes from github.."
+git pull > /dev/null
+
+echo "Copying configs to $HOME/.config folder"
+for i in $(ls $repo/configs)
+do
+    cp -r $repo/configs/$i $HOME/.config > /dev/null
+done
+
+echo "Copying bins to /bin folder"
+sudo $((
+    for i in $(ls $repo/bin)
+    do
+        cp $repo/bin/$i /bin > /dev/null
+    done
+))
+
+echo "Update completed!"

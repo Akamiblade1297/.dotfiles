@@ -1,0 +1,25 @@
+#!/bin/bash
+repo=$(dirname $0)
+cfgs=$(cat $repo/lists/configs)
+bins=$(cat $repo/lists/bin)
+
+echo "Copying configs to local repo.."
+for i in $cfgs
+do
+    cp -r $HOME/.config/$i $repo/configs > /dev/null
+done
+
+echo "Copying bins to local repo.."
+for i in $bins
+do
+    cp /bin/$i $repo/bin > /dev/null
+done
+
+echo "Commiting changes.."
+git add $repo
+git commit -m "update" > /dev/null
+
+echo "Pushing changes to github.."
+git push origin master
+
+echo "Uploading completed"
