@@ -13,6 +13,6 @@ return {
             terminal_colors = true,
             cache = false,
         })
-        vim.cmd.colorscheme "slate"
+        vim.cmd.colorscheme "cyberdream"
     end
 }
