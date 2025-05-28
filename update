@@ -2,7 +2,7 @@
 repo=$(dirname $0)
 
 echo "Pulling changes from github.."
-git pull > /dev/null
+git pull origin master > /dev/null
 
 echo "Copying configs to $HOME/.config folder"
 for i in $(ls $repo/configs)
@@ -11,11 +11,9 @@ do
 done
 
 echo "Copying bins to /bin folder"
-sudo $((
-    for i in $(ls $repo/bin)
-    do
-        cp $repo/bin/$i /bin > /dev/null
-    done
-))
+for i in $(ls $repo/bin)
+do
+    sudo cp $repo/bin/$i /bin > /dev/null
+done
 
 echo "Update completed!"
