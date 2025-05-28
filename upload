@@ -2,13 +2,14 @@
 repo=$(dirname $0)
 cfgs=$(cat $repo/lists/configs)
 bins=$(cat $repo/lists/bin)
+dev_rel=$repo/configs/hypr/device_relative
 
 echo "Copying configs to local repo.."
 for i in $cfgs
 do
     cp -r $HOME/.config/$i $repo/configs > /dev/null
     if [ $i == 'hypr' ]; then
-        rm -rf $repo/configs/$i/device_relative/*
+        rm -rf $dev_rel/*.conf
     fi
 done
 
