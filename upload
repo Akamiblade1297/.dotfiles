@@ -4,6 +4,9 @@ cfgs=$(cat $repo/lists/configs)
 bins=$(cat $repo/lists/bin)
 dev_rel=$repo/configs/hypr/device_relative
 
+echo "Copying .zshrc"
+cp $HOME/.zshrc $repo
+
 echo "Copying configs to local repo.."
 for i in $cfgs
 do

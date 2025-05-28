@@ -4,6 +4,9 @@ repo=$(dirname $0)
 echo "Pulling changes from github.."
 git pull origin master > /dev/null
 
+echo "Copying .zshrc to $HOME folder"
+cp $repo/.zshrc $HOME
+
 echo "Copying configs to $HOME/.config folder"
 for i in $(ls $repo/configs)
 do
