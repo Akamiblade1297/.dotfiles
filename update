@@ -1,21 +1,26 @@
 #!/bin/bash
 repo=$(dirname $0)
+cfgs=$(cat $repo/lists/configs)
+bins=$(cat $repo/lists/bin)
 
 echo "Pulling changes from github.."
 git pull origin master > /dev/null
 
 echo "Copying .zshrc to $HOME folder"
+rm $HOME/.zshrc
 cp $repo/.zshrc $HOME
 
 echo "Copying configs to $HOME/.config folder"
-for i in $(ls $repo/configs)
+for i in $cfgs
 do
+    rm -rf $HOME/.config/$i
     cp -r $repo/configs/$i $HOME/.config > /dev/null
 done
 
 echo "Copying bins to /bin folder"
-for i in $(ls $repo/bin)
+for i in $bins
 do
+    sudo rm -rf /bin/$i
     sudo cp $repo/bin/$i /bin > /dev/null
 done
 

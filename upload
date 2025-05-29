@@ -5,11 +5,13 @@ bins=$(cat $repo/lists/bin)
 dev_rel=$repo/configs/hypr/device_relative
 
 echo "Copying .zshrc"
+rm $repo/.zshrc
 cp $HOME/.zshrc $repo
 
 echo "Copying configs to local repo.."
 for i in $cfgs
 do
+    rm -rf $repo/configs/$i
     cp -r $HOME/.config/$i $repo/configs > /dev/null
     if [ $i == 'hypr' ]; then
         rm -rf $dev_rel/*.conf
@@ -19,6 +21,7 @@ done
 echo "Copying bins to local repo.."
 for i in $bins
 do
+    sudo rm -rf $repo/bin/$i
     cp /bin/$i $repo/bin > /dev/null
 done
 
