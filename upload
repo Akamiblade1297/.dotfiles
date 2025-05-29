@@ -1,4 +1,7 @@
 #!/bin/bash
+sudo -k
+sudo echo "Verified."
+
 repo=$(dirname $0)
 cfgs=$(cat $repo/lists/configs)
 bins=$(cat $repo/lists/bin)
