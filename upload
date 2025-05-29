@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo -k
-sudo echo "Verified."
+sudo echo "Verified." || { echo "You must Verify"; exit 1; }
 
 repo=$(dirname $0)
 cfgs=$(cat $repo/lists/configs)
