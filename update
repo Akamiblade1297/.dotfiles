@@ -19,12 +19,12 @@ echo "Copying configs to $HOME/.config folder"
 for i in $cfgs
 do
     if ! $(diff -qr $HOME/.config/$i $repo/configs/$i); then
-        if $i == 'hypr'; then
+        if [[ $i == 'hypr' ]]; then
             cp -r $HOME/.config/hypr/device_relative/ /tmp
         fi
         rm -rf $HOME/.config/$i
         cp -r $repo/configs/$i $HOME/.config > /dev/null
-        if $i == 'hypr'; then
+        if [[ $i == 'hypr' ]]; then
             cp -r /tmp/device_relative $HOME/.config/hypr
             rm -rf /tmp/device_relative
         fi
@@ -40,4 +40,5 @@ do
     fi
 done
 
+hyprctl reload
 echo "Update completed!"
