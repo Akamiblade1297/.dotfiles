@@ -1,0 +1,4 @@
+#!/bin/bash
+name=''
+read -p "Enter the name of the song: " name
+yt-dlp -t mp3 $1 -o ~/Music/"$name".mp3
