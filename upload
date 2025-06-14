@@ -36,6 +36,9 @@ echo "Copying relative configs to local repo.."
 for i in $cfgs_rel
 do
     rm -rf $dev_rel/configs/$i
+    if $i | grep -q "/"; then
+        mkdir $dev_rel/$(dirname $i)
+    fi
     cp -r $HOME/.config/$i $dev_rel/configs/$i > /dev/null
 done
 
