@@ -4,34 +4,38 @@ sudo echo "Verified." || { echo "You must verify"; exit 1; }
 
 repo=$(dirname $0)
 cfgs=$(cat $repo/lists/configs)
+cfgs_rel=$(cat $repo/lists/configs_rel)
 bins=$(cat $repo/lists/bin)
+dev_rel=$repo/$(cat $repo/.device)_relative
 
 echo "Pulling changes from github.."
 git pull origin master > /dev/null
 
-echo "Copying .zshrc to $HOME folder"
+echo "Copying .zshrc to $HOME folder.."
 if ! $(diff -qr $HOME/.zshrc $repo/.zshrc); then
     rm $HOME/.zshrc
     cp $repo/.zshrc $HOME
 fi
 
-echo "Copying configs to $HOME/.config folder"
+echo "Copying configs to $HOME/.config folder.."
 for i in $cfgs
 do
     if ! $(diff -qr $HOME/.config/$i $repo/configs/$i); then
-        if [[ $i == 'hypr' ]]; then
-            cp -r $HOME/.config/hypr/device_relative/ /tmp
-        fi
         rm -rf $HOME/.config/$i
         cp -r $repo/configs/$i $HOME/.config > /dev/null
-        if [[ $i == 'hypr' ]]; then
-            cp -r /tmp/device_relative $HOME/.config/hypr
-            rm -rf /tmp/device_relative
-        fi
     fi
 done
 
-echo "Copying bins to /bin folder"
+echo "Copying relative configs to $HOME/.config folder.."
+for i in $cfgs_rel
+do
+    if ! $(diff -qr $HOME/.config/$i $dev_rel/$i); then
+        rm -rf $HOME/.config/$i
+        cp -r $dev_rel/$i $HOME/.configs > /dev/null
+    fi
+done
+
+echo "Copying bins to /bin folder.."
 for i in $bins
 do
     if ! $(sudo diff -qr /bin/$i $repo/bin/$i); then
