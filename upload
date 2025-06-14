@@ -14,7 +14,7 @@ if [[ -f $repo/.device ]]; then
 else
     read -p "What's your device? " device
     echo $device > $repo/.device
-    mkdir -p "$repo"/"$device"_relative/configs
+    mkdir "$repo"/"$device"_relative
 fi    
 dev_rel="$repo"/"$device"_relative
 
@@ -28,15 +28,18 @@ do
     rm -rf $repo/configs/$i
     cp -r $HOME/.config/$i $repo/configs > /dev/null
     if [ $i == 'hypr' ]; then
-        rm -rf $repo/configs/hypr/device_relative
+        rm -rf $repo/configs/$i/"$i"_relative
     fi
 done
 
 echo "Copying relative configs to local repo.."
 for i in $cfgs_rel
 do
-    rm -rf $dev_rel/configs/$i
-    cp --parents -r $HOME/.config/$i $dev_rel/configs/$i > /dev/null
+    rm -rf $dev_rel/$i
+    if [[ $i == */* ]]; then
+        mkdir $dev_rel/$(dirname $i)
+    fi
+    cp -r $HOME/.config/$i $dev_rel/$i > /dev/null
 done
 
 echo "Copying bins to local repo.."
