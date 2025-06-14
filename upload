@@ -5,7 +5,18 @@ sudo echo "Verified." || { echo "You must Verify"; exit 1; }
 repo=$(dirname $0)
 cfgs=$(cat $repo/lists/configs)
 bins=$(cat $repo/lists/bin)
-dev_rel=$repo/configs/hypr/device_relative
+cfgs_rel=$(cat $repo/lists/configs_rel)
+device=''
+
+echo "Getting device info.."
+if [[ -f $repo/.device ]]; then
+    device=$(cat $repo/.device)
+else
+    read -p "What's your device? " device
+    echo $device > $repo/.device
+    mkdir -p "$repo"/"$device"_relative/configs
+fi    
+dev_rel="$repo"/"$device"_relative
 
 echo "Copying .zshrc"
 rm $repo/.zshrc
@@ -17,8 +28,15 @@ do
     rm -rf $repo/configs/$i
     cp -r $HOME/.config/$i $repo/configs > /dev/null
     if [ $i == 'hypr' ]; then
-        rm -rf $dev_rel/*.conf
+        rm -rf $repo/configs/hypr/device_relative
     fi
+done
+
+echo "Copying relative configs to local repo.."
+for i in $cfgs_rel
+do
+    rm -rf $dev_rel/configs/$i
+    cp -r $HOME/.config/$i $dev_rel/configs > /dev/null
 done
 
 echo "Copying bins to local repo.."
@@ -30,6 +48,7 @@ done
 
 echo "Commiting changes.."
 git add $repo
+git restore --staged $repo/.device
 git commit -m "update" > /dev/null
 
 echo "Pushing changes to github.."
