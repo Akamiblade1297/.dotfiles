@@ -36,7 +36,7 @@ echo "Copying relative configs to local repo.."
 for i in $cfgs_rel
 do
     rm -rf $dev_rel/configs/$i
-    cp -r $HOME/.config/$i $dev_rel/configs > /dev/null
+    cp -r $HOME/.config/$i $dev_rel/configs/$i > /dev/null
 done
 
 echo "Copying bins to local repo.."
