@@ -31,7 +31,7 @@ for i in $cfgs_rel
 do
     if ! $(diff -qr $HOME/.config/$i $dev_rel/$i); then
         rm -rf $HOME/.config/$i
-        cp -r $dev_rel/$i $HOME/.configs > /dev/null
+        cp -r $dev_rel/$i $HOME/.config > /dev/null
     fi
 done
 
