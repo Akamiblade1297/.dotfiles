@@ -1,5 +1,6 @@
 #!/bin/bash
 sudo -k
+echo "Verify to begin the UPLOAD"
 sudo echo "Verified." || { echo "You must Verify"; exit 1; }
 
 repo=$(dirname $0)

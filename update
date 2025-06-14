@@ -1,5 +1,6 @@
 #!/bin/bash
 sudo -k
+echo "Verify to begin the UPDATE"
 sudo echo "Verified." || { echo "You must verify"; exit 1; }
 
 repo=$(dirname $0)
