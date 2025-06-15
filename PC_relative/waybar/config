@@ -153,7 +153,7 @@
         "interval": 5,
     },
     "mpd": {
-        "format": "{stateIcon} {title} - ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+        "format": "  {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) {stateIcon}",
         "format-disconnected": "~",
         "format-stopped": "~",
         "interval": 1,
@@ -175,7 +175,6 @@
         },
         "state-icons": {
             "paused": "",
-            "playing": ""
         },
         "tooltip-format": "  {volume}% | {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}\n{songPosition}/{queueLength}",
         "tooltip-format-disconnected": ""
