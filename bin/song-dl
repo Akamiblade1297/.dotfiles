@@ -2,3 +2,6 @@
 name=''
 read -p "Enter the name of the song: " name
 yt-dlp -t mp3 $1 -o ~/Music/"$name".mp3
+mid3v2 --TIT2 "$name" ~/Music/"$name".mp3
+mpc update
+mpc add "$name".mp3
