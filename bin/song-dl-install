@@ -1,0 +1,5 @@
+#!/bin/bash
+while read -r line
+do
+    song-dl $line
+done < ~/.config/mpd/song-dl.list
