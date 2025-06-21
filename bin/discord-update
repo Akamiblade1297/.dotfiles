@@ -1,7 +1,6 @@
 #!/bin/bash
-kitty --class float wget "https://discord.com/api/download?platform=linux&format=tar.gz" -O /tmp/discord.tar.gz &&
+wget "https://discord.com/api/download?platform=linux&format=tar.gz" -O /tmp/discord.tar.gz &&
 rm -rf $HOME/Desktop/Discord &&
 tar -xzvf /tmp/discord.tar.gz && 
 rm -rf /tmp/discord.tar.gz &&
-mv Discord $HOME/Desktop &&
-kitty --class float --hold echo Discord has been updated
+mv Discord $HOME/Desktop

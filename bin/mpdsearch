@@ -1,0 +1,5 @@
+#!/bin/bash
+
+title="$(mpc playlist | fzf --prompt="Search song: " --preview="echo {}" --preview-window=up:3:wrap)"
+position="$(mpc -f "%position% %title%" playlist | grep "$title" | cut -d' ' -f1)"
+mpc play $position
