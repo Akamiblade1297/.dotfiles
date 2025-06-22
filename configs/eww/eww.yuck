@@ -12,10 +12,14 @@
 (defpoll cs :interval "1s" "if [ $(mpc | tail -n 1 | awk '{print $10}') != 'on' ]; then echo 'inactive'; fi")
 
 (defwindow mpd-menu
-    :geometry (geometry :width "450px" :height "200px")
+    :geometry (geometry :width "450px" :height "380px")
     :stacking "fg"
     :windowtype "dock"
     (box :orientation "v" :space-evenly false
+      (box :orientation "h" :halign "end" :space-evenly false
+        (button :onclick "eww close mpd-menu && hyprctl dispatch submap reset"
+                :style "font-size: 5px; border: 0px"
+                "x"))
       (box :orientation "v" :class "title-box"
         (label :text song :class "title")
         (label :text num  :class "number"))
