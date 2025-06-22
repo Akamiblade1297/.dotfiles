@@ -1,0 +1,55 @@
+(defpoll song  :interval "1s"   "mpc current")
+(defpoll num   :interval "1s"   "mpc | grep '#' | awk '{print $2}' | sed -e 's/#//g'")
+(defpoll plpa  :interval "1s"   "if mpc status | grep -q 'paused'; then echo ❙❙; else echo ▶; fi")
+(defpoll vol   :interval "1s"   "mpc volume | sed -e 's/%//g' | awk '{print $2}'")
+(defpoll time  :interval "0.1s" "mpc | grep '%)' | awk '{print $4}' | tr -d '(%)'")
+(defpoll ctime :interval "0.1s" "mpc | grep '#' | awk '{print $3}' | sed 's|/.*||g'")
+(defpoll ftime :interval "1s"   "mpc -f %time% current")
+
+(defpoll rp :interval "1s" "if [ $(mpc | tail -n 1 | awk '{print $4}') != 'on' ]; then echo 'inactive'; fi")
+(defpoll rd :interval "1s" "if [ $(mpc | tail -n 1 | awk '{print $6}') != 'on' ]; then echo 'inactive'; fi")
+(defpoll sg :interval "1s" "if [ $(mpc | tail -n 1 | awk '{print $8}') != 'on' ]; then echo 'inactive'; fi")
+(defpoll cs :interval "1s" "if [ $(mpc | tail -n 1 | awk '{print $10}') != 'on' ]; then echo 'inactive'; fi")
+
+(defwindow mpd-menu
+    :geometry (geometry :width "450px" :height "200px")
+    :stacking "fg"
+    :windowtype "dock"
+    (box :orientation "v" :space-evenly false
+      (box :orientation "v" :class "title-box"
+        (label :text song :class "title")
+        (label :text num  :class "number"))
+      (box :orientation "h" :class "time-box" :space-evenly false :halign "center"
+        (label :text "${ctime}/${ftime}  ")
+        (scale :min 0
+               :max 100
+               :value time
+               :active false
+               :class "time-slider")
+        (label :text "${ctime}/${ftime}  " :class "hidden"))
+      (box :orientation "h" :class "volume-box" :space-evenly false :halign "center"
+        (label :text "${vol}%  ")
+        (scale :min 0
+               :max 100
+               :value vol
+               :onchange "mpc volume {}"
+               :class "volume-slider")
+        (label :text "${vol}%  " :class "hidden"))
+      (label :text " ")
+      (box :orientation "h"  :class "controls-box" :space-evenly false :halign "center"
+        (button :width 50 :height 50 :class "prev"   :onclick "mpc prev"   "⏮")
+        (button :width 50 :height 50 :class "mirr"   :onclick "mpc seek -15" 
+          (image :path '/home/a97/.config/eww/img/rewind-l.svg' :image-width 30 :image-height 30))
+        (button :width 50 :height 50 :class "toggle" :onclick "mpc toggle" plpa)
+        (button :width 50 :height 50 :class "mirr"   :onclick "mpc seek +15" 
+          (image :path '/home/a97/.config/eww/img/rewind-r.svg' :image-width 30 :image-height 30))
+        (button :width 50 :height 50 :class "next"   :onclick "mpc next"   "⏭"))
+      (box :orientation "h"  :class "controls-box" :space-evenly false :halign "center"
+        (button :width 40 :height 40 :class "mode ${rp}" :onclick "mpc repeat"  " ")
+        (button :width 40 :height 40 :class "mode ${sg}" :onclick "mpc single"  "1")
+        (button :width 40 :height 40 :class "mode ${cs}" :onclick "mpc consume" " ")
+        (button :width 40 :height 40 :class "mode ${rd}" :onclick "mpc random"  " "))
+      (label :text " ")
+      (box :orientation "h" :class "controls-box" :space-evenly false :halign "center"
+        (button :width 50 :height 50 :onclick "mpc shuffle" " " )
+        (button :width 50 :height 50 :onclick "mpdsearch &" "Search" ))))

@@ -1,0 +1,69 @@
+* {
+  all: unset;
+  font-size: 15px;
+}
+
+.mpd-menu {
+  padding:    10px;
+  background: rgba(0, 0, 0, 40%);
+  border:     1px solid #115be6;
+}
+
+label {
+  color: rgb(0,128,255);
+}
+.title {
+  font-size: 17;
+}
+.number {
+  font-size: 10px;
+}
+
+button {
+  padding: 5px;
+  margin: 5px;
+  background: rgba(0, 0, 0, 0);
+  transition: all 0.2s ease;
+  border:    1px solid #115be6
+}
+
+.volume-box scale trough highlight {
+    all: unset;
+    background-color: #115be6;
+    border-radius: 8px;
+}
+
+.volume-box scale trough {
+    all: unset;
+    background-color: rgba(10,10,80,0.9);
+    border-radius: 8px;
+    min-height: 20px;
+    min-width: 200px;
+    margin : 10px 0px 0px 0px;
+}
+
+.time-box scale trough highlight {
+    all: unset;
+    background-color: #115be6;
+    border-radius: 8px;
+}
+
+.time-box scale trough {
+    all: unset;
+    background-color: rgba(10,10,80,0.9);
+    border-radius: 8px;
+    min-height: 10px;
+    min-width: 150px;
+    margin : 10px 0px 0px 0px;
+}
+
+.hidden {
+  color: rgba(0,0,0,0)
+}
+
+.mode label {
+  font-size: 13;
+}
+.mode.inactive label {
+    color: rgba(0,50,100,0.9)
+}

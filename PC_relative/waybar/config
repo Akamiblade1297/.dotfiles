@@ -14,6 +14,7 @@
     ],
     "modules-center": [],
     "modules-right": [
+        "custom/kitty",
         "custom/gpu",
         "cpu",
         "temperature",
@@ -156,7 +157,7 @@
         "format": "  {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) {stateIcon}",
         "format-disconnected": "~",
         "format-stopped": "~",
-        "interval": 1,
+        "interval": 0.1,
         "on-click": "mpc toggle",
         "on-click-right": "mpc stop",
         "on-scroll-up": "mpc volume +10",
@@ -179,4 +180,8 @@
         "tooltip-format": "  {volume}% | {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}\n{songPosition}/{queueLength}",
         "tooltip-format-disconnected": ""
     },
+    "custom/kitty": {
+        "exec": "echo ' '",
+        "on-click": "kitty"
+    }
 }
