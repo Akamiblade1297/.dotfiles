@@ -158,7 +158,7 @@
         "format-disconnected": "~",
         "format-stopped": "~",
         "interval": 0.1,
-        "on-click": "eww open mpd-menu --screen $(hyprctl activeworkspace -j | jq '.monitorID') --anchor 'top left' --pos 240x0 && hyprctl dispatch submap mpdmenu",
+        "on-click": "eww open mpd-menu --screen $(hyprctl activeworkspace -j | jq '.monitorID') --anchor 'top left' --pos 240x0",
         "on-click-right": "mpc stop",
         "on-scroll-up": "mpc volume +10",
         "on-scroll-down": "mpc volume -10",
