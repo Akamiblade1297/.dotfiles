@@ -42,6 +42,7 @@ do
     if ! $(sudo diff -qr /bin/$i $repo/bin/$i); then
         sudo rm -rf /bin/$i
         sudo cp $repo/bin/$i /bin > /dev/null
+        sudo chmod +x /bin/$i > /dev/null
     fi
 done
 
