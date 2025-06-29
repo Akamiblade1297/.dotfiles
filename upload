@@ -10,11 +10,11 @@ cfgs_rel=$(cat $repo/lists/configs_rel)
 device=''
 
 echo "Getting device info.."
-if [[ -f $repo/.device ]]; then
+if [[ -f $repo/.gitignore/.device ]]; then
     device=$(cat $repo/.device)
 else
     read -p "What's your device? " device
-    echo $device > $repo/.device
+    echo $device > $repo/.gitignore/.device
     mkdir "$repo"/"$device"_relative
 fi    
 dev_rel="$repo"/"$device"_relative
@@ -52,7 +52,6 @@ done
 
 echo "Commiting changes.."
 git add $repo
-git restore --staged $repo/.device
 git commit -m "update" > /dev/null
 
 echo "Pushing changes to github.."

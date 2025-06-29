@@ -7,7 +7,7 @@ repo=$(dirname $0)
 cfgs=$(cat $repo/lists/configs)
 cfgs_rel=$(cat $repo/lists/configs_rel)
 bins=$(cat $repo/lists/bin)
-dev_rel=$repo/$(cat $repo/.device)_relative
+dev_rel=$repo/$(cat $repo/.gitignore/.device)_relative
 
 echo "Pulling changes from github.."
 git pull origin master > /dev/null
