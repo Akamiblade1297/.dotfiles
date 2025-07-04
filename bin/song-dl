@@ -4,6 +4,7 @@ mid3v2 --TIT2 "$2" ~/Music/"$2".mp3 &&
 
 mpc -q update &&
 mpc -q add "$2".mp3 &&
+mp3gain -c -r ~/Music/*
 
 if [[ $3 == "" ]]; then
     echo "$1 \"$2\"" >> ~/.config/mpd/song-dl.list
