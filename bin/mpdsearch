@@ -1,5 +1,5 @@
 #!/bin/bash
 
-title="$(mpc playlist | rofi -dmenu -p "Search song")"
+title="$(mpc playlist | rofi -i -dmenu -p "Search song")"
 position="$(mpc -f "%position% %title%" playlist | grep "$title" | cut -d' ' -f1)"
 mpc play $position
