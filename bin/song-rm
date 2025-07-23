@@ -1,0 +1,23 @@
+#!/bin/bash
+
+list="$HOME/.config/mpd/song-dl.list"
+
+sed -i.bak "/$1/d" $list
+
+if cmp -s $list $list.bak; then
+    echo "Can't find the song."
+    rm $list.bak
+else
+    name=$( sed -n "/$1/p" $list.bak | sed 's/.*\s"\([^"]*\)".*/\1/' )
+    echo "Found song: $name"
+    read -p "Are you sure you want to remove it? [Y/n] "  ok
+    
+    if [[ ${ok,,} == 'y' ]] || [[ ${ok} == '' ]]; then
+        rm "$HOME/Music/$name.mp3"
+        echo "Song was removed"
+    else
+        rm $list
+        mv $list.bak $list
+        echo "Song wasn't removed"
+    fi
+fi
