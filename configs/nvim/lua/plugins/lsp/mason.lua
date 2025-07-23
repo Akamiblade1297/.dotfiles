@@ -28,8 +28,7 @@ return {
                 "graphql",
                 "emmet_ls",
                 "prismals",
-                "pyright",
-                "jdtls"
+                "pyright"
             },
 
             automatic_installation = true,
