@@ -9,19 +9,17 @@
     "height": 45,
     "modules-left": [
         "hyprland/workspaces",
-        "custom/separator",
-        "mpd"
     ],
-    "modules-center": ["custom/record"],
+    "modules-center": ["sway/window"],
     "modules-right": [
-        "custom/kitty",
-        "custom/gpu",
         "cpu",
         "temperature",
         "memory",
         "custom/separator",
+        "battery",
         "pulseaudio",
         "hyprland/language",
+        "network",
         "clock"
     ],
     "hyprland/language": {
@@ -93,7 +91,7 @@
         }
     },
     "network": {
-        "format-wifi": " {icon}",
+        "format-wifi": "{icon}",
         "format-ethernet": "  ",
         "format-disconnected": "󰌙",
         "format-icons": [
@@ -102,17 +100,20 @@
             "󰤢 ",
             "󰤢 ",
             "󰤨 "
-        ]
+        ],
+        "on-click": "kitty --class NMTUI -e nmtui"
     },
     "battery": {
+        "bat": "BAT0",
+        "interval": 10,
         "states": {
             "good": 95,
-            "warning": 30,
+            "warning": 40,
             "critical": 20
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format": "{icon} ",
+        "format-charging": "{icon}⚡ ",
+        "format-plugged": "{icon}⚡ ",
         "format-alt": "{time} {icon}",
         "format-icons": [
             "󰂎",
@@ -130,66 +131,22 @@
     },
     "pulseaudio": {
         "max-volume": 150,
-        "scroll-step": 10,
-        "format": "{icon}{volume}%",
+        "scroll-step": 1,
+        "format": "{icon} {volume}%",
         "tooltip-format": "{volume}%",
         "format-muted": " ",
         "format-icons": {
             "default": [
-                " ",
-                " ",
+                "",
+                "",
                 " "
             ]
         },
-        "on-click": "pactl set-sink-mute alsa_output.usb-C-Media_Electronics_Inc._HECATE_G2_II_GAMING_HEADSET_20210525-00.analog-stereo toggle"
+        "on-click": "pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle"
     },
     "custom/separator": {
         "format": "| ",
         "interval": "once",
         "tooltip": false
     },
-    "custom/gpu": {
-        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
-        "format": "  {}%",
-        "interval": 5,
-    },
-    "mpd": {
-        "format": "  {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) {stateIcon}",
-        "format-disconnected": "~",
-        "format-stopped": "~",
-        "interval": 0.1,
-        "on-click": "eww open mpd-menu --screen $(hyprctl activeworkspace -j | jq '.monitorID') --anchor 'top left' --pos 240x0",
-        "on-click-right": "mpc stop",
-        "on-scroll-up": "mpc volume +10",
-        "on-scroll-down": "mpc volume -10",
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-        },
-        "tooltip-format": "  {volume}% | {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}\n{songPosition}/{queueLength}",
-        "tooltip-format-disconnected": ""
-    },
-    "custom/kitty": {
-        "exec": "echo ' '",
-        "interval": "once",
-        "on-click": "kitty",
-        "tooltip-format": "Kitty",
-    },
-    "custom/record": {
-        "exec": "if pgrep gpu-screen-reco > /dev/null;then echo '「REC」';else echo '    '; fi",
-        "restart-interval": 1,
-        "on-click": "record",
-        "tooltip": false,
-    }
 }
