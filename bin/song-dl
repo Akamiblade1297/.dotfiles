@@ -7,5 +7,5 @@ mpc -q add "$2".mp3 &&
 mp3gain -c -r ~/Music/*
 
 if [[ $3 == "" ]]; then
-    echo "$1 \"$2\"" >> ~/.config/mpd/song-dl.list
+    echo "$1 $2" >> ~/.config/mpd/song-dl.list
 fi
