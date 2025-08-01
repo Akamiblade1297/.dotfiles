@@ -10,7 +10,7 @@ bins=$(cat $repo/lists/bin)
 device=''
 
 echo "Getting device info.."
-if [[ -f $repo/.gitignore/.device ]]; then
+if [[ -f $repo/.device ]]; then
     device=$(cat $repo/.gitignore/.device)
 else
     read -p "What's your device? " device
