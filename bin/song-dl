@@ -1,11 +1,23 @@
 #!/bin/bash
-yt-dlp -t mp3 "$1" -o ~/Music/"$2".mp3 &&
-mid3v2 --TIT2 "$2" ~/Music/"$2".mp3 &&
+link=$1
+name=$2
+start=$3
+end=$4
+
+if [[ "$start" == "" ]]; then start="00:00:00"; fi
+if [[ "$end" == "" ]]; then end="00:00:00"; fi
+
+yt-dlp -t mp3 "$link" -o ~/Music/"$name".mp3 &&
+mid3v2 --TIT2 "$name" ~/Music/"$name".mp3 &&
 
 mpc -q update &&
-mpc -q add "$2".mp3 &&
-mp3gain -c -r ~/Music/*
+mpc -q add "$name".mp3 &&
 
-if [[ $3 == "" ]]; then
-    echo "$1 $2" >> ~/.config/mpd/song-dl.list
+if [[ $end != "00:00:00" ]]; then
+    ffmpeg -i ~/Music/"$name".mp3 -ss $start -to $end -c copy ~/Music/"$name"--.mp3 && mv ~/Music/"$name"--.mp3 ~/Music/"$name".mp3
+fi &&
+
+if [[ $5 == "" ]]; then
+    echo "$link;$name;$start;$end" >> ~/.config/mpd/song-dl.list
+    mp3gain -c -r ~/Music/*
 fi
