@@ -21,7 +21,7 @@
   box-shadow: none;
   border: none;
   border-radius: 0;
-  font-family: "Ubuntu";
+  font-family: "JetBrainsMono Nerd Font";
   font-weight: 600;
   font-size: 15px;
   
@@ -35,7 +35,6 @@ window#waybar {
 }
 
 #custom-os_button {
-  font-family: "JetBrainsMono Nerd Font";
   font-size: 24px;
   padding-left: 12px;
   padding-right: 20px;
@@ -187,4 +186,8 @@ window#waybar {
 #custom-separator {
   color: rgba(255, 255, 255, 0.5);
   margin: 0 5px;
+}
+
+#custom-record {
+    color: rgba(220, 50, 50, 1)
 }
