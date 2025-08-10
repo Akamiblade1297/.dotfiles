@@ -1,7 +1,7 @@
 #!/bin/bash
 . ./vars
 sudo -k
-printf "$prmpt Verify to begin the UPDATE\n"
+printf "$prmpt Verify to begin the \e[1m$1\e[0m\n"
 sudo printf "$ok Verified.\n" || { printf "$error You must verify\n"; exit 1; }
 
 printf "$info Getting device info.."

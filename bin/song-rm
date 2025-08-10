@@ -1,23 +1,64 @@
 #!/bin/bash
 
 list="$HOME/.config/mpd/song-dl.list"
+music="$HOME/Music"
 
-sed -i.bak "/$1/d" $list
-
-if cmp -s $list $list.bak; then
-    echo "Can't find the song."
-    rm $list.bak
-else
-    name=$( sed -n "/$1/p" $list.bak | sed 's/.*\s"\([^"]*\)".*/\1/' )
-    echo "Found song: $name"
-    read -p "Are you sure you want to remove it? [Y/n] "  ok
-    
-    if [[ ${ok,,} == 'y' ]] || [[ ${ok} == '' ]]; then
-        rm "$HOME/Music/$name.mp3"
-        echo "Song was removed"
-    else
-        rm $list
-        mv $list.bak $list
-        echo "Song wasn't removed"
-    fi
+if [[ -z $1 ]] | [[ ! -z $2 ]]; then
+    echo "Usage: $0 <song>" >&2
+    exit 1
 fi
+
+matching=$(grep -i "$1" "$list")
+
+if [[ -z "$matching" ]]; then
+    echo "No matching songs found"
+    exit 0
+fi
+
+echo "Found matching songs:"
+i=1
+while IFS='' read -r line; do
+    IFS=';' read -r link name st sp <<< "$line"
+    echo "[$i] $name"
+    i=$((i+1))
+done <<< "$matching"
+
+echo ''
+read -p "Choose song to remove[0-None, 1-Default] " ans
+if [[ -z $ans ]]; then
+    id=1
+elif [[ $ans =~ ^[0-9]+$ ]]; then
+    id=$ans
+    echo $id
+else
+    er="NON_NUM"
+    echo $ans
+fi
+
+if [[ $er = "NON_NUM" ]]; then
+    echo "Expected number, aborting" >&2
+    exit 1
+elif [[ $id -eq 0 ]]; then
+    echo "No songs were removed"
+    exit 0
+fi
+
+i=1
+while IFS='' read -r line; do
+    IFS=';' read -r link name st sp <<< "$line"
+    if [[ $i -eq $id ]]; then
+	read -p "Are you sure you want to remove $name[Y,n]? " ans
+	if [[ ${ans,,} = 'n' ]]; then
+	    echo "Operation cancelled, aborting"
+	else
+	    mv "$list" "$list.bak" &&
+	    cp "$list.bak" "$list" &&
+	    sed -i "/$name/d" "$list" &&
+	    rm "$music/$name.mp3" &&
+	    mpc update &&
+	    echo "Song $name was removed successfuly"
+	fi
+	break
+    fi
+    i=$((i+1))
+done <<< "$matching"

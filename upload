@@ -1,6 +1,6 @@
 #!/bin/bash
-. ./vars   || exit 1
-. ./verify || exit 1
+. ./vars          || exit 1
+. ./verify UPLOAD || exit 1
 
 if ! $(diff -qr $repo/.zshrc $HOME/.zshrc); then
     printf "$info Uploading new .zshrc.."
@@ -21,7 +21,7 @@ done
 
 for i in $cfgs_rel
 do
-    if ! $(diff -qr $dev_rel/$i); then
+    if ! $(diff -qr $dev_rel/$i $HOME/.config/$i); then
         printf "$info Uploading new $i User config.."
         rm -rf $dev_rel/$i
         if [[ $i == */* ]]; then
@@ -39,6 +39,8 @@ do
         printf "$info Uploading new $i System config\n"
         sudo rm -rf $repo/etc/$i
         sudo cp -r /etc/$i $repo/etc/$i
+    fi
+done
 
 for i in $bins
 do
@@ -55,6 +57,6 @@ git commit -m "update" > /dev/null
 
 printf "$info Pushing changes to github.."
 git push origin master > /dev/bull
-prinf "$ers$ok Pushed changes to github"
+printf "$ers$ok Pushed changes to github"
 
 printf "$ok Uploading completed\n"

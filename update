@@ -1,6 +1,6 @@
 #!/bin/bash
-. ./vars   || exit 1
-. ./verify || exit 1
+. ./vars          || exit 1
+. ./verify UPDATE || exit 1
 
 printf "$info Pulling changes from github.."
 git pull origin master > /dev/null
@@ -33,7 +33,7 @@ do
     fi
 done
 
-for i in $etc
+for i in $etcs
 do
     if ! $(sudo diff -qr /etc/$i $repo/etc/$i); then
         printf "$info Updating $i System config.."
