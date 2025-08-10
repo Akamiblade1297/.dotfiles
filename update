@@ -3,7 +3,7 @@
 . ./verify UPDATE || exit 1
 
 printf "$info Pulling changes from github.."
-git pull origin master > /dev/null
+git pull origin master > /dev/null 2>/dev/null || (printf "$ers$error Failed to pull changes from github\n"; exit 1")
 printf "$ers$ok Changes pulled from github\n"
 
 if ! $(diff -qr $HOME/.zshrc $repo/.zshrc); then
