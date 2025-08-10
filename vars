@@ -1,0 +1,14 @@
+#!/bin/bash
+info="[\e[0;35mINFO\e[0m]"
+prmpt="[\e[0;96mPROMPT\e[0m]"
+warning="[\e[0;93mWARNING\e[0m]"
+error="[\e[0;91mERROR\e[0m]"
+ok="[\e[0;92mOK\e[0m]"
+
+ers="\e[0G\e[K"
+
+repo=$(dirname $0)
+cfgs=$(cat $repo/lists/configs)
+cfgs_rel=$(cat $repo/lists/configs_rel)
+etcs=$(cat $repo/lists/etc)
+bins=$(cat $repo/lists/bin)

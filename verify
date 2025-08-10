@@ -1,0 +1,17 @@
+#!/bin/bash
+. ./vars
+sudo -k
+printf "$prmpt Verify to begin the UPDATE\n"
+sudo printf "$ok Verified.\n" || { printf "$error You must verify\n"; exit 1; }
+
+printf "$info Getting device info.."
+if [[ -f $repo/.device ]]; then
+    device=$(cat $repo/.device)
+else
+    printf "\n$prmpt What's your device? "
+    read device
+    echo $device > $repo/.device
+    mkdir "$repo"/"$device"_relative 2>/dev/null
+fi    
+dev_rel="$repo"/"$device"_relative
+printf "$ers$ok Got device info\n"

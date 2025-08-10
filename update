@@ -1,60 +1,58 @@
 #!/bin/bash
-sudo -k
-echo "Verify to begin the UPDATE"
-sudo echo "Verified." || { echo "You must verify"; exit 1; }
+. ./vars   || exit 1
+. ./verify || exit 1
 
-repo=$(dirname $0)
-cfgs=$(cat $repo/lists/configs)
-cfgs_rel=$(cat $repo/lists/configs_rel)
-bins=$(cat $repo/lists/bin)
-device=''
-
-echo "Getting device info.."
-if [[ -f $repo/.device ]]; then
-    device=$(cat $repo/.device)
-else
-    read -p "What's your device? " device
-    echo $device > $repo/.device
-    mkdir "$repo"/"$device"_relative
-fi    
-dev_rel="$repo"/"$device"_relative
-
-echo "Pulling changes from github.."
+printf "$info Pulling changes from github.."
 git pull origin master > /dev/null
+printf "$ers$ok Changes pulled from github\n"
 
-echo "Copying .zshrc to $HOME folder.."
 if ! $(diff -qr $HOME/.zshrc $repo/.zshrc); then
+    printf "$info Updating .zshrc.."
     rm $HOME/.zshrc
     cp $repo/.zshrc $HOME
+    printf "$ers$ok Updated .zshrc\n"
 fi
 
-echo "Copying configs to $HOME/.config folder.."
 for i in $cfgs
 do
     if ! $(diff -qr $HOME/.config/$i $repo/configs/$i); then
+        printf "$info Updating $i User config.."
         rm -rf $HOME/.config/$i
         cp -r $repo/configs/$i $HOME/.config > /dev/null
+        printf "$ers$ok Updated $i User config\n"
     fi
 done
 
-echo "Copying relative configs to $HOME/.config folder.."
 for i in $cfgs_rel
 do
     if ! $(diff -qr $HOME/.config/$i $dev_rel/$i); then
+        printf "$info Updating $i User config.."
         rm -rf $HOME/.config/$i
         cp -r $dev_rel/$i $HOME/.config/$i > /dev/null
+        printf "$ers$ok Updated $i User config\n"
     fi
 done
 
-echo "Copying bins to /bin folder.."
+for i in $etc
+do
+    if ! $(sudo diff -qr /etc/$i $repo/etc/$i); then
+        printf "$info Updating $i System config.."
+        sudo rm -rf /etc/$i
+        sudo cp -r $repo/etc/$i /etc/
+        printf "$ers$ok Updated $i System config\n"
+    fi
+done
+
 for i in $bins
 do
     if ! $(sudo diff -qr /bin/$i $repo/bin/$i); then
+        printf "$info Updating $i Executable.."
         sudo rm -rf /bin/$i
-        sudo cp $repo/bin/$i /bin > /dev/null
+        sudo cp -r $repo/bin/$i /bin/ > /dev/null
         sudo chmod +x /bin/$i > /dev/null
+        printf "$ers$ok Updating $i Executable\n"
     fi
 done
 
 hyprctl reload
-echo "Update completed!"
+echo "$ok Update complete\n"

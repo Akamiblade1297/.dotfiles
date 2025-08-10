@@ -1,60 +1,60 @@
 #!/bin/bash
-sudo -k
-echo "Verify to begin the UPLOAD"
-sudo echo "Verified." || { echo "You must Verify"; exit 1; }
+. ./vars   || exit 1
+. ./verify || exit 1
 
-repo=$(dirname $0)
-cfgs=$(cat $repo/lists/configs)
-bins=$(cat $repo/lists/bin)
-cfgs_rel=$(cat $repo/lists/configs_rel)
-device=''
+if ! $(diff -qr $repo/.zshrc $HOME/.zshrc); then
+    printf "$info Uploading new .zshrc.."
+    rm $repo/.zshrc
+    cp $HOME/.zshrc $repo
+    printf "$ers$ok Uploaded new .zshrc\n"
+fi
 
-echo "Getting device info.."
-if [[ -f $repo/.device ]]; then
-    device=$(cat $repo/.device)
-else
-    read -p "What's your device? " device
-    echo $device > $repo/.device
-    mkdir "$repo"/"$device"_relative
-fi    
-dev_rel="$repo"/"$device"_relative
-
-echo "Copying .zshrc"
-rm $repo/.zshrc
-cp $HOME/.zshrc $repo
-
-echo "Copying configs to local repo.."
 for i in $cfgs
 do
-    rm -rf $repo/configs/$i
-    cp -r $HOME/.config/$i $repo/configs > /dev/null
-    if [ $i == 'hypr' ]; then
-        rm -rf $repo/configs/$i/"$i"_relative
+    if ! $(diff -qr $repo/configs/$i $HOME/.config/$i); then
+        printf "$info Uploading new $i User config.."
+        rm -rf $repo/configs/$i
+        cp -r $HOME/.config/$i $repo/configs/$i > /dev/null
+        printf "$ers$ok Uploaded new $i User config\n"
     fi
 done
 
-echo "Copying relative configs to local repo.."
 for i in $cfgs_rel
 do
-    rm -rf $dev_rel/$i
-    if [[ $i == */* ]]; then
-        mkdir $dev_rel/$(dirname $i)
+    if ! $(diff -qr $dev_rel/$i); then
+        printf "$info Uploading new $i User config.."
+        rm -rf $dev_rel/$i
+        if [[ $i == */* ]]; then
+            mkdir $dev_rel/$(dirname $i) 2>/dev/null
+            rm -rf $repo/configs/$i
+        fi
+        cp -r $HOME/.config/$i $dev_rel/$i > /dev/null
+        printf "$ers$ok Uploaded new $i User config\n"
     fi
-    cp -r $HOME/.config/$i $dev_rel/$i > /dev/null
 done
 
-echo "Copying bins to local repo.."
+for i in $etcs
+do
+    if ! $(sudo diff -qr $repo/etc/$i /etc/$i); then
+        printf "$info Uploading new $i System config\n"
+        sudo rm -rf $repo/etc/$i
+        sudo cp -r /etc/$i $repo/etc/$i
+
 for i in $bins
 do
-    sudo rm -rf $repo/bin/$i
-    cp /bin/$i $repo/bin > /dev/null
+    if ! $(sudo diff -qr $repo/bin/$i /bin/$i); then
+        printf "$info Uploading new $i Executable.."
+        sudo rm -rf $repo/bin/$i
+        cp /bin/$i $repo/bin/$i > /dev/null
+        printf "$ers$ok Uploaded new $i Executable\n"
+    fi
 done
 
-echo "Commiting changes.."
 git add $repo
 git commit -m "update" > /dev/null
 
-echo "Pushing changes to github.."
-git push origin master
+printf "$info Pushing changes to github.."
+git push origin master > /dev/bull
+prinf "$ers$ok Pushed changes to github"
 
-echo "Uploading completed"
+printf "$ok Uploading completed\n"
