@@ -56,7 +56,6 @@ git add $repo
 git commit -m "update" > /dev/null
 
 printf "$info Pushing changes to github.."
-git push origin master > /dev/null || { printf "$ers$error Failed to push changes to github"; exit 1 }
-printf "$ers$ok Pushed changes to github"
+git push origin master > /dev/null && printf "$ers$ok Pushed changes to github" || (printf "$ers$warning Failed to push changes to github")
 
 printf "$ok Uploading completed\n"
