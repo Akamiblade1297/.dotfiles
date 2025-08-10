@@ -54,5 +54,5 @@ do
     fi
 done
 
-hyprctl reload
-echo "$ok Update complete\n"
+hyprctl reload || printf "$warning Couldn't reload Hyprland config\n"
+printf "$ok Update complete\n"
