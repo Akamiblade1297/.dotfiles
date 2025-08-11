@@ -6,12 +6,15 @@ printf "$info Pulling changes from github.."
 git pull origin master > /dev/null 2>/dev/null || (printf "$ers$error Failed to pull changes from github\n"; exit 1)
 printf "$ers$ok Changes pulled from github\n"
 
-if ! $(diff -qr $HOME/.zshrc $repo/.zshrc); then
-    printf "$info Updating .zshrc.."
-    rm $HOME/.zshrc
-    cp $repo/.zshrc $HOME
-    printf "$ers$ok Updated .zshrc\n"
-fi
+for i in $homes
+do
+    if ! $(diff -qr $HOME/$i $repo/home/$i); then
+        printf "$info Updating $i home file.."
+        rm $HOME/$i
+        cp $repo/home/$i $HOME/
+        printf "$ers$ok Updated $i home file\n"
+    fi
+done
 
 for i in $cfgs
 do

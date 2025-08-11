@@ -2,12 +2,15 @@
 . ./vars          || exit 1
 . ./verify UPLOAD || exit 1
 
-if ! $(diff -qr $repo/.zshrc $HOME/.zshrc); then
-    printf "$info Uploading new .zshrc.."
-    rm $repo/.zshrc
-    cp $HOME/.zshrc $repo
-    printf "$ers$ok Uploaded new .zshrc\n"
-fi
+for i in $homes
+do
+    if ! $(diff -qr $repo/home/$i $HOME/$i); then
+        printf "$info Uploading new $i home file.."
+        rm $repo/home/$i
+        cp $HOME/$i $repo/home/$i
+        printf "$ers$ok Uploaded new $i home file\n"
+    fi
+done
 
 for i in $cfgs
 do
