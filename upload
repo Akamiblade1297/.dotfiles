@@ -4,7 +4,7 @@
 
 for i in $homes
 do
-    if ! $(diff -qr ./home/$i $HOME/$i); then
+    if ! $(diff -qr ./home/$i $HOME/$i >/dev/null); then
         printf "$info Uploading new $i home file.."
         rm ./home/$i
         cp $HOME/$i ./home/$i
@@ -14,9 +14,9 @@ done
 
 for i in $cfgs
 do
-    if ! $(diff -qr ./configs/$i $HOME/.config/$i); then
+    if ! $(diff -qr ./configs/$i $HOME/.config/$i >/dev/null); then
         printf "$info Uploading new $i User config.."
-        rm -rf ./configs/$i
+        rm -rf ./configs/$i >/dev/null
         cp -r $HOME/.config/$i ./configs/$i > /dev/null
         printf "$ers$ok Uploaded new $i User config\n"
     fi
@@ -24,12 +24,12 @@ done
 
 for i in $cfgs_rel
 do
-    if ! $(diff -qr $dev_rel/$i $HOME/.config/$i); then
+    if ! $(diff -qr $dev_rel/$i $HOME/.config/$i >/dev/null); then
         printf "$info Uploading new $i User config.."
-        rm -rf $dev_rel/$i
+        rm -rf $dev_rel/$i >/dev/null
         if [[ $i == */* ]]; then
             mkdir $dev_rel/$(dirname $i) 2>/dev/null
-            rm -rf ./configs/$i
+            rm -rf ./configs/$i >/dev/null
         fi
         cp -r $HOME/.config/$i $dev_rel/$i > /dev/null
         printf "$ers$ok Uploaded new $i User config\n"
@@ -38,18 +38,18 @@ done
 
 for i in $etcs
 do
-    if ! $(sudo diff -qr ./etc/$i /etc/$i); then
+    if ! $(sudo diff -qr ./etc/$i /etc/$i >/dev/null); then
         printf "$info Uploading new $i System config\n"
-        sudo rm -rf ./etc/$i
+        sudo rm -rf ./etc/$i >/dev/null
         sudo cp -r /etc/$i ./etc/$i
     fi
 done
 
 for i in $bins
 do
-    if ! $(sudo diff -qr ./bin/$i /bin/$i); then
+    if ! $(sudo diff -qr ./bin/$i /bin/$i >/dev/null); then
         printf "$info Uploading new $i Executable.."
-        sudo rm -rf ./bin/$i
+        sudo rm -rf ./bin/$i >/dev/null
         cp /bin/$i ./bin/$i > /dev/null
         printf "$ers$ok Uploaded new $i Executable\n"
     fi

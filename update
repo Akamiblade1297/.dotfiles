@@ -8,7 +8,7 @@ printf "$ers$ok Changes pulled from github\n"
 
 for i in $homes
 do
-    if ! $(diff -qr $HOME/$i ./home/$i); then
+    if ! $(diff -qr $HOME/$i ./home/$i >/dev/null); then
         printf "$info Updating $i home file.."
         rm $HOME/$i
         cp ./home/$i $HOME/
@@ -18,9 +18,9 @@ done
 
 for i in $cfgs
 do
-    if ! $(diff -qr $HOME/.config/$i ./configs/$i); then
+    if ! $(diff -qr $HOME/.config/$i ./configs/$i >/dev/null); then
         printf "$info Updating $i User config.."
-        rm -rf $HOME/.config/$i
+        rm -rf $HOME/.config/$i >/dev/null
         cp -r ./configs/$i $HOME/.config > /dev/null
         printf "$ers$ok Updated $i User config\n"
     fi
@@ -28,9 +28,9 @@ done
 
 for i in $cfgs_rel
 do
-    if ! $(diff -qr $HOME/.config/$i $dev_rel/$i); then
+    if ! $(diff -qr $HOME/.config/$i $dev_rel/$i >/dev/null); then
         printf "$info Updating $i User config.."
-        rm -rf $HOME/.config/$i
+        rm -rf $HOME/.config/$i >/dev/null
         cp -r $dev_rel/$i $HOME/.config/$i > /dev/null
         printf "$ers$ok Updated $i User config\n"
     fi
@@ -38,9 +38,9 @@ done
 
 for i in $etcs
 do
-    if ! $(sudo diff -qr /etc/$i ./etc/$i); then
+    if ! $(sudo diff -qr /etc/$i ./etc/$i >/dev/null); then
         printf "$info Updating $i System config.."
-        sudo rm -rf /etc/$i
+        sudo rm -rf /etc/$i >/dev/null
         sudo cp -r ./etc/$i /etc/
         printf "$ers$ok Updated $i System config\n"
     fi
@@ -48,9 +48,9 @@ done
 
 for i in $bins
 do
-    if ! $(sudo diff -qr /bin/$i ./bin/$i); then
+    if ! $(sudo diff -qr /bin/$i ./bin/$i >/dev/null); then
         printf "$info Updating $i Executable.."
-        sudo rm -rf /bin/$i
+        sudo rm -rf /bin/$i >/dev/null
         sudo cp -r ./bin/$i /bin/ > /dev/null
         sudo chmod +x /bin/$i > /dev/null
         printf "$ers$ok Updating $i Executable\n"
