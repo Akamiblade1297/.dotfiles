@@ -10,7 +10,7 @@ for i in $homes
 do
     if ! $(diff -qr $HOME/$i ./home/$i >/dev/null 2>/dev/null); then
         printf "$info Updating $i home file.."
-        rm $HOME/$i
+        rm $HOME/$i 2>/dev/null
         cp ./home/$i $HOME/
         printf "$ers$ok Updated $i home file\n"
     fi

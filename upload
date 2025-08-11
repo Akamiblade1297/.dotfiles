@@ -6,7 +6,7 @@ for i in $homes
 do
     if ! $(diff -qr ./home/$i $HOME/$i >/dev/null 2>/dev/null); then
         printf "$info Uploading new $i home file.."
-        rm ./home/$i
+        rm ./home/$i 2>/dev/null
         cp $HOME/$i ./home/$i
         printf "$ers$ok Uploaded new $i home file\n"
     fi
