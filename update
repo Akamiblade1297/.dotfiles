@@ -20,7 +20,7 @@ for i in $cfgs
 do
     if ! $(diff -qr $HOME/.config/$i ./configs/$i >/dev/null 2>/dev/null); then
         printf "$info Updating $i User config.."
-        rm -rf $HOME/.config/$i >/dev/null
+        rm -rf $HOME/.config/$i 2>/dev/null
         cp -r ./configs/$i $HOME/.config > /dev/null
         printf "$ers$ok Updated $i User config\n"
     fi
@@ -30,7 +30,7 @@ for i in $cfgs_rel
 do
     if ! $(diff -qr $HOME/.config/$i $dev_rel/$i >/dev/null 2>/dev/null); then
         printf "$info Updating $i User config.."
-        rm -rf $HOME/.config/$i >/dev/null
+        rm -rf $HOME/.config/$i 2>/dev/null
         cp -r $dev_rel/$i $HOME/.config/$i > /dev/null
         printf "$ers$ok Updated $i User config\n"
     fi
@@ -40,7 +40,7 @@ for i in $etcs
 do
     if ! $(sudo diff -qr /etc/$i ./etc/$i >/dev/null 2>/dev/null); then
         printf "$info Updating $i System config.."
-        sudo rm -rf /etc/$i >/dev/null
+        sudo rm -rf /etc/$i 2>/dev/null
         sudo cp -r ./etc/$i /etc/
         printf "$ers$ok Updated $i System config\n"
     fi
@@ -50,7 +50,7 @@ for i in $bins
 do
     if ! $(sudo diff -qr /bin/$i ./bin/$i >/dev/null 2>/dev/null); then
         printf "$info Updating $i Executable.."
-        sudo rm -rf /bin/$i >/dev/null
+        sudo rm -rf /bin/$i 2>/dev/null
         sudo cp -r ./bin/$i /bin/ > /dev/null
         sudo chmod +x /bin/$i > /dev/null
         printf "$ers$ok Updating $i Executable\n"
