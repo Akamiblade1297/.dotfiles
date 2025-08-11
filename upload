@@ -4,20 +4,20 @@
 
 for i in $homes
 do
-    if ! $(diff -qr $repo/home/$i $HOME/$i); then
+    if ! $(diff -qr ./home/$i $HOME/$i); then
         printf "$info Uploading new $i home file.."
-        rm $repo/home/$i
-        cp $HOME/$i $repo/home/$i
+        rm ./home/$i
+        cp $HOME/$i ./home/$i
         printf "$ers$ok Uploaded new $i home file\n"
     fi
 done
 
 for i in $cfgs
 do
-    if ! $(diff -qr $repo/configs/$i $HOME/.config/$i); then
+    if ! $(diff -qr ./configs/$i $HOME/.config/$i); then
         printf "$info Uploading new $i User config.."
-        rm -rf $repo/configs/$i
-        cp -r $HOME/.config/$i $repo/configs/$i > /dev/null
+        rm -rf ./configs/$i
+        cp -r $HOME/.config/$i ./configs/$i > /dev/null
         printf "$ers$ok Uploaded new $i User config\n"
     fi
 done
@@ -29,7 +29,7 @@ do
         rm -rf $dev_rel/$i
         if [[ $i == */* ]]; then
             mkdir $dev_rel/$(dirname $i) 2>/dev/null
-            rm -rf $repo/configs/$i
+            rm -rf ./configs/$i
         fi
         cp -r $HOME/.config/$i $dev_rel/$i > /dev/null
         printf "$ers$ok Uploaded new $i User config\n"
@@ -38,24 +38,24 @@ done
 
 for i in $etcs
 do
-    if ! $(sudo diff -qr $repo/etc/$i /etc/$i); then
+    if ! $(sudo diff -qr ./etc/$i /etc/$i); then
         printf "$info Uploading new $i System config\n"
-        sudo rm -rf $repo/etc/$i
-        sudo cp -r /etc/$i $repo/etc/$i
+        sudo rm -rf ./etc/$i
+        sudo cp -r /etc/$i ./etc/$i
     fi
 done
 
 for i in $bins
 do
-    if ! $(sudo diff -qr $repo/bin/$i /bin/$i); then
+    if ! $(sudo diff -qr ./bin/$i /bin/$i); then
         printf "$info Uploading new $i Executable.."
-        sudo rm -rf $repo/bin/$i
-        cp /bin/$i $repo/bin/$i > /dev/null
+        sudo rm -rf ./bin/$i
+        cp /bin/$i ./bin/$i > /dev/null
         printf "$ers$ok Uploaded new $i Executable\n"
     fi
 done
 
-git add $repo
+git add .
 git commit -m "update" > /dev/null
 
 printf "$info Pushing changes to github.."

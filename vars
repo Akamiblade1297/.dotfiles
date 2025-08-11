@@ -7,8 +7,8 @@ ok="[\e[0;92mOK\e[0m]"
 
 ers="\e[0G\e[K"
 
-repo=$(dirname $0)
-cfgs=$(cat $repo/lists/configs)
-cfgs_rel=$(cat $repo/lists/configs_rel)
-etcs=$(cat $repo/lists/etc)
-bins=$(cat $repo/lists/bin)
+homes=$(cat ./lists/home)
+cfgs=$(cat ./lists/configs)
+cfgs_rel=$(cat ./lists/configs_rel)
+etcs=$(cat ./lists/etc)
+bins=$(cat ./lists/bin)
