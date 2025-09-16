@@ -1,0 +1,406 @@
+α greek alpha lowercase letter
+β greek beta lowercase letter
+γ greek gamma lowercase letter
+δ greek delta lowercase letter lowercase
+ε greek epsilon lowercase letter
+ζ greek zeta lowercase letter
+η greek eta lowercase letter
+θ greek theta lowercase letter
+ι greek iota lowercase letter
+κ greek kappa lowercase letter
+λ greek lambda lowercase letter
+μ greek mu lowercase letter
+ν greek nu lowercase letter
+ξ greek xi lowercase letter
+ο greek omicron lowercase letter
+π greek pi lowercase letter
+ρ greek rho lowercase letter
+σ greek sigma lowercase letter
+τ greek tau lowercase letter
+υ greek upsilon lowercase letter
+φ greek phi lowercase letter
+χ greek chi lowercase letter
+ψ greek psi lowercase letter
+ω greek omega lowercase letter
+Α greek Alpha uppercase letter
+Β greek Beta uppercase letter
+Γ greek Gamma uppercase letter
+Δ greek Delta uppercase letter
+Ε greek Epsilon uppercase letter
+Ζ greek Zeta uppercase letter
+Η greek Eta uppercase letter
+Θ greek Theta uppercase letter
+Ι greek Iota uppercase letter
+Κ greek Kappa uppercase letter
+Λ greek Lambda uppercase letter
+Μ greek Mu uppercase letter
+Ν greek Nu uppercase letter
+Ξ greek Xi uppercase letter
+Ο greek Omicron uppercase letter
+Π greek Pi uppercase letter
+Ρ greek Rho uppercase letter
+Σ greek Sigma uppercase letter summation
+Τ greek Tau uppercase letter
+Υ greek Upsilon uppercase letter
+Φ greek Phi uppercase letter
+Χ greek Chi uppercase letter
+Ψ greek Psi uppercase letter
+Ω greek Omega uppercase letter
+± math plus-minus operator
+∓ math minus-plus operator
+× math multiplication times operator
+÷ math division operator
+= math equals equality
+≠ math not-equal inequality
+≈ math approximately-equal almost-equal
+≡ math identical equivalence
+≤ math less-than-or-equal inequality
+≥ math greater-than-or-equal inequality
+< math less-than inequality
+> math greater-than inequality
+¬ math logical-not negation
+∧ math logical-and conjunction
+∨ math logical-or disjunction
+∀ math for-all universal-quantifier
+∃ math there-exists existential-quantifier
+∄ math there-does-not-exist negation
+∅ math empty-set set null
+∈ math element-of set membership
+∉ math not-an-element-of set
+⊂ math subset-of set
+⊃ math superset-of set
+∪ math union set
+∩ math intersection set
+∑ math summation summation operator
+∏ math product product operator
+∫ math integral calculus
+∬ math double-integral calculus
+∭ math triple-integral calculus
+∮ math contour-integral calculus
+∞ math infinity limitless
+∇ math nabla del gradient
+∂ math partial-derivative calculus
+√ math square-root radical
+∛ math cube-root radical
+∜ math fourth-root radical
+∴ math therefore conclusion
+∵ math because reasoning
+∶ math ratio proportion
+∷ math proportion equals
+′ math prime derivative
+″ math double-prime second-derivative
+‴ math triple-prime
+─ box box-drawing light horizontal line
+━ box box-drawing heavy horizontal line
+│ box box-drawing light vertical line
+┃ box box-drawing heavy vertical line
+┌ box box-drawing light down-and-right corner
+┍ box box-drawing light down-and-heavy-right corner
+┎ box box-drawing heavy-down-and-light-right corner
+┏ box box-drawing heavy down-and-right corner
+┐ box box-drawing light down-and-left corner
+┑ box box-drawing light-down-and-heavy-left corner
+┒ box box-drawing heavy-down-and-light-left corner
+┓ box box-drawing heavy down-and-left corner
+└ box box-drawing light up-and-right corner
+┕ box box-drawing light-up-and-heavy-right corner
+┖ box box-drawing heavy-up-and-light-right corner
+┗ box box-drawing heavy up-and-right corner
+┘ box box-drawing light up-and-left corner
+┙ box box-drawing light-up-and-heavy-left corner
+┚ box box-drawing heavy-up-and-light-left corner
+┛ box box-drawing heavy up-and-left corner
+├ box box-drawing light vertical-and-right junction
+┝ box box-drawing light-vertical-and-heavy-right junction
+┞ box box-drawing heavy-vertical-and-light-right junction
+┟ box box-drawing light-down-and-heavy-horizontal-up-light-vertical junction
+┠ box box-drawing heavy-down-and-light-horizontal-up-light-vertical junction
+┡ box box-drawing light-down-and-horizontal-heavy-up-light-vertical junction
+┢ box box-drawing heavy-down-and-horizontal-light-up-light-vertical junction
+┣ box box-drawing heavy vertical-and-right junction
+┤ box box-drawing light vertical-and-left junction
+┥ box box-drawing light-vertical-and-heavy-left junction
+┦ box box-drawing heavy-vertical-and-light-left junction
+┧ box box-drawing light-up-and-heavy-horizontal-down-light-vertical junction
+┨ box box-drawing heavy-up-and-light-horizontal-down-light-vertical junction
+┩ box box-drawing light-up-and-horizontal-heavy-down-light-vertical junction
+┪ box box-drawing heavy-up-and-horizontal-light-down-light-vertical junction
+┫ box box-drawing heavy vertical-and-left junction
+┬ box box-drawing light down-and-horizontal junction
+┭ box box-drawing light-down-and-heavy-horizontal junction
+┮ box box-drawing heavy-down-and-light-horizontal junction
+┯ box box-drawing light-down-and-horizontal-heavy junction
+┰ box box-drawing heavy-down-and-horizontal-light junction
+┱ box box-drawing light-down-and-horizontal-light-up-heavy junction
+┲ box box-drawing heavy-down-and-horizontal-light-up-light junction
+┳ box box-drawing heavy down-and-horizontal junction
+┴ box box-drawing light up-and-horizontal junction
+┵ box box-drawing light-up-and-heavy-horizontal junction
+┶ box box-drawing heavy-up-and-light-horizontal junction
+┷ box box-drawing light-up-and-horizontal-heavy junction
+┸ box box-drawing heavy-up-and-horizontal-light junction
+┹ box box-drawing light-up-and-horizontal-light-down-heavy junction
+┺ box box-drawing heavy-up-and-horizontal-light-down-light junction
+┻ box box-drawing heavy up-and-horizontal junction
+┼ box box-drawing light vertical-and-horizontal junction
+┽ box box-drawing light-vertical-and-heavy-horizontal junction
+┾ box box-drawing heavy-vertical-and-light-horizontal junction
+┿ box box-drawing light-vertical-and-horizontal-heavy junction
+╀ box box-drawing heavy-vertical-and-horizontal-light junction
+╁ box box-drawing light-vertical-light-left-heavy-down-horizontal junction
+╂ box box-drawing heavy-vertical-light-left-light-down-horizontal junction
+╃ box box-drawing light-vertical-heavy-left-light-down-horizontal junction
+╄ box box-drawing heavy-vertical-light-left-heavy-down-horizontal junction
+╅ box box-drawing light-vertical-heavy-left-heavy-down-horizontal junction
+╆ box box-drawing heavy-vertical-heavy-left-light-down-horizontal junction
+╇ box box-drawing light-vertical-light-right-heavy-down-horizontal junction
+╈ box box-drawing heavy-vertical-light-right-light-down-horizontal junction
+╉ box box-drawing light-vertical-heavy-right-light-down-horizontal junction
+╊ box box-drawing heavy-vertical-light-right-heavy-down-horizontal junction
+╋ box box-drawing heavy vertical-and-horizontal junction
+░ box shading light shade
+▒ box shading medium shade
+▓ box shading dark shade
+█ box block full block
+▄ box block lower half block
+▅ box block lower one quarter block
+▆ box block lower three eighths block
+▇ box block lower seven eighths block
+▉ box block left seven eighths block
+▊ box block left three quarters block
+▋ box block left five eighths block
+▌ box block left half block
+▍ box block left three eighths block
+▎ box block left one quarter block
+▏ box block left one eighth block
+▐ box block right half block
+■ box geometric black square
+□ box geometric white square
+▢ box geometric white square with rounded corners
+▣ box geometric white square containing black small square
+▤ box geometric square with horizontal fill
+▥ box geometric square with vertical fill
+▦ box geometric square with orthogonal crosshatch fill
+▧ box geometric square with upper left to lower right fill
+▨ box geometric square with upper right to lower left fill
+▩ box geometric square with diagonal crosshatch fill
+▲ box geometric black up-pointing triangle
+△ box geometric white up-pointing triangle
+▶ box geometric black right-pointing triangle
+▷ box geometric white right-pointing triangle
+▼ box geometric black down-pointing triangle
+▽ box geometric white down-pointing triangle
+◀ box geometric black left-pointing triangle
+◁ box geometric white left-pointing triangle
+◆ box geometric black diamond
+◇ box geometric white diamond
+◈ box geometric white diamond containing black small diamond
+○ box geometric white circle
+◎ box geometric bullseye
+● box geometric black circle
+◐ box geometric circle with left half black
+◑ box geometric circle with right half black
+◒ box geometric circle with lower half black
+◓ box geometric circle with upper half black
+◔ box geometric circle with upper right quadrant black
+◕ box geometric circle with all but upper left quadrant black
+◖ box geometric left half black circle
+◗ box geometric right half black circle
+◘ box geometric inverse bullet
+◙ box geometric inverse white circle
+◚ box geometric upper half circle
+◛ box geometric lower half circle
+◜ box geometric upper left quadrant circular arc
+◝ box geometric upper right quadrant circular arc
+◞ box geometric lower right quadrant circular arc
+◟ box geometric lower left quadrant circular arc
+◠ box geometric upper half circle
+◡ box geometric lower half circle
+© other copyright symbol legal
+® other registered trademark legal
+™ other trademark symbol legal
+° other degree symbol temperature angle
+¶ other pilcrow paragraph mark
+§ other section symbol legal paragpraph
+† other dagger footnote reference
+‡ other double-dagger footnote reference
+• other bullet point list
+… other ellipsis continuation omission
+→ other rightwards-arrow direction
+← other leftwards-arrow direction
+↑ other upwards-arrow direction
+↓ other downwards-arrow direction
+↔ other left-right-arrow direction both-ways
+↵ other downwards-arrow-with-corner-leftwards return enter
+✓ other checkmark check correct yes
+✔ other heavy-checkmark check correct yes
+✗ other ballot-x x incorrect no
+✘ other heavy-ballot-x x incorrect no
+❤ other heart love emotion
+★ other star rating favorite
+☆ other white-star star outline
+♠ other spade suit card
+♣ other club suit card
+♥ other heart suit card card
+♦ other diamond suit card card
+♭ other music flat note
+♮ other music natural note
+♯ other music sharp note
+♪ other music eighth-note quaver
+♩ other music quarter-note crotchet
+♫ other music beamed-eighth-notes
+♬ other music beamed-sixteenth-notes
+⚠ other warning sign caution alert
+✂ other scissors cut copy
+✉ other envelope email letter
+✏ other pencil write edit
+✒ other black-nib pen write
+✓ other checkmark correct yes
+✔ other heavy-checkmark correct yes
+✕ other multiplication-x incorrect no
+✖ other heavy-multiplication-x incorrect no
+✗ other ballot-x incorrect no
+✘ other heavy-ballot-x incorrect no
+✶ other six-pointed-star sextile
+❄ other snowflake winter cold
+← arrows leftwards-arrow direction backward
+→ arrows rightwards-arrow direction forward
+↑ arrows upwards-arrow direction up
+↓ arrows downwards-arrow direction down
+↔ arrows left-right-arrow direction both-ways horizontal
+↕ arrows up-down-arrow direction both-ways vertical
+↖ arrows north-west-arrow direction up-left diagonal
+↗ arrows north-east-arrow direction up-right diagonal
+↘ arrows south-east-arrow direction down-right diagonal
+↙ arrows south-west-arrow direction down-left diagonal
+↚ arrows leftwards-arrow-with-stroke direction no back prohibited
+↛ arrows rightwards-arrow-with-stroke direction no forward prohibited
+↜ arrows leftwards-wave-arrow direction wiggle squiggle
+↝ arrows rightwards-wave-arrow direction wiggle squiggle
+↞ arrows leftwards-two-headed-arrow direction two-way double
+↟ arrows upwards-two-headed-arrow direction two-way double
+↠ arrows rightwards-two-headed-arrow direction two-way double
+↡ arrows downwards-two-headed-arrow direction two-way double
+↢ arrows leftwards-arrow-with-tail direction map injection
+↣ arrows rightwards-arrow-with-tail direction map surjection
+↤ arrows leftwards-arrow-from-bar direction assignment
+↥ arrows upwards-arrow-from-bar direction extension
+↦ arrows rightwards-arrow-from-bar direction map function
+↧ arrows downwards-arrow-from-bar direction
+↨ arrows up-down-arrow-with-base direction
+↩ arrows leftwards-arrow-with-hook direction return enter
+↪ arrows rightwards-arrow-with-hook direction
+↵ arrows downwards-arrow-with-corner-leftwards direction return enter
+↶ arrows anticlockwise-top-semicircle-arrow direction curve turn left
+↷ arrows clockwise-top-semicircle-arrow direction curve turn right
+↸ arrows north-west-arrow-to-long-bar direction
+↹ arrows leftwards-arrow-to-bar-over-rightwards-arrow-to-bar direction tab
+↺ arrows anticlockwise-open-circle-arrow direction refresh rotate
+↻ arrows clockwise-open-circle-arrow direction refresh rotate
+↼ arrows leftwards-harpoon-with-barb-upwards direction vector
+↽ arrows leftwards-harpoon-with-barb-downwards direction vector
+↾ arrows upwards-harpoon-with-barb-rightwards direction vector
+↿ arrows upwards-harpoon-with-barb-leftwards direction vector
+⇀ arrows rightwards-harpoon-with-barb-upwards direction vector
+⇁ arrows rightwards-harpoon-with-barb-downwards direction vector
+⇂ arrows downwards-harpoon-with-barb-rightwards direction vector
+⇃ arrows downwards-harpoon-with-barb-leftwards direction vector
+⇄ arrows rightwards-arrow-over-leftwards-arrow direction exchange
+⇅ arrows upwards-arrow-leftwards-of-downwards-arrow direction
+⇆ arrows leftwards-arrow-over-rightwards-arrow direction exchange
+⇇ arrows leftwards-paired-arrows direction double
+⇈ arrows upwards-paired-arrows direction double
+⇉ arrows rightwards-paired-arrows direction double
+⇊ arrows downwards-paired-arrows direction double
+⇋ arrows leftwards-harpoon-over-rightwards-harpoon direction equilibrium
+⇌ arrows rightwards-harpoon-over-leftwards-harpoon direction equilibrium
+⇍ arrows leftwards-double-arrow-with-stroke direction no not logical
+⇎ arrows left-right-double-arrow-with-stroke direction no not logical
+⇏ arrows rightwards-double-arrow-with-stroke direction no not logical
+⇐ arrows leftwards-double-arrow direction implication
+⇑ arrows upwards-double-arrow direction
+⇒ arrows rightwards-double-arrow direction implication therefore
+⇓ arrows downwards-double-arrow direction
+⇔ arrows left-right-double-arrow direction equivalence if-and-only-if
+⇕ arrows up-down-double-arrow direction
+⇖ arrows north-west-double-arrow direction
+⇗ arrows north-east-double-arrow direction
+⇘ arrows south-east-double-arrow direction
+⇙ arrows south-west-double-arrow direction
+⇚ arrows leftwards-triple-arrow direction
+⇛ arrows rightwards-triple-arrow direction
+⇜ arrows leftwards-squiggle-arrow direction
+⇝ arrows rightwards-squiggle-arrow direction
+⇞ arrows upwards-arrow-with-double-stroke direction page-up
+⇟ arrows downwards-arrow-with-double-stroke direction page-down
+⇠ arrows leftwards-dashed-arrow direction
+⇡ arrows upwards-dashed-arrow direction
+⇢ arrows rightwards-dashed-arrow direction
+⇣ arrows downwards-dashed-arrow direction
+⇤ arrows leftwards-arrow-to-bar direction tab
+⇥ arrows rightwards-arrow-to-bar direction tab
+⇦ arrows leftwards-white-arrow direction
+⇧ arrows upwards-white-arrow direction shift
+⇨ arrows rightwards-white-arrow direction
+⇩ arrows downwards-white-arrow direction
+⇪ arrows upwards-white-arrow-from-bar direction caps-lock
+⇫ arrows upwards-white-arrow-on-pedestal direction
+⇬ arrows upwards-white-arrow-on-pedestal-with-vertical-bar direction
+⇭ arrows upwards-white-arrow-on-pedestal-with-horizontal-bar direction
+⇮ arrows upwards-white-double-arrow direction
+⇯ arrows upwards-white-double-arrow-on-pedestal direction
+⇰ arrows rightwards-white-arrow-from-wall direction
+⇱ arrows north-west-arrow-to-corner direction home
+⇲ arrows south-east-arrow-to-corner direction end
+⇳ arrows up-down-white-arrow direction sort
+⇴ arrows rightwards-arrow-with-vertical-stroke direction
+⇵ arrows downwards-arrow-leftwards-of-upwards-arrow direction cycle
+⇶ arrows three-d-rightwards-arrow direction
+⇷ arrows leftwards-arrow-with-vertical-stroke direction
+⇸ arrows rightwards-arrow-with-vertical-stroke direction
+⇹ arrows left-right-arrow-with-vertical-stroke direction
+⇺ arrows leftwards-open-headed-arrow direction
+⇻ arrows rightwards-open-headed-arrow direction
+⇼ arrows left-right-open-headed-arrow direction
+⇽ arrows leftwards-double-arrow-with-triangle-arrowheads direction
+⇾ arrows rightwards-double-arrow-with-triangle-arrowheads direction
+⇿ arrows left-right-double-arrow-with-triangle-arrowheads direction
+➔ arrows heavy-rightwards-arrow direction forward
+➘ arrows heavy-south-east-arrow direction
+➙ arrows heavy-rightwards-arrow direction
+➚ arrows heavy-north-east-arrow direction
+➛ arrows drafting-point-rightwards-arrow direction
+➜ arrows heavy-round-tipped-rightwards-arrow direction
+➝ arrows triangle-headed-rightwards-arrow direction
+➞ arrows heavy-triangle-headed-rightwards-arrow direction
+➟ arrows dashed-triangle-headed-rightwards-arrow direction
+➠ arrows heavy-dashed-triangle-headed-rightwards-arrow direction
+➡ arrows black-rightwards-arrow direction forward
+➢ arrows three-d-top-lighted-rightwards-arrowhead direction
+➣ arrows three-d-bottom-lighted-rightwards-arrowhead direction
+➤ arrows black-rightwards-arrowhead direction
+➥ arrows heavy-black-curved-downwards-and-rightwards-arrow direction
+➦ arrows heavy-black-curved-upwards-and-rightwards-arrow direction
+➧ arrows squat-black-rightwards-arrow direction
+➨ arrows heavy-concave-pointed-black-rightwards-arrow direction
+➩ arrows right-shaded-white-rightwards-arrow direction
+➪ arrows left-shaded-white-rightwards-arrow direction
+➫ arrows back-tilted-shadowed-white-rightwards-arrow direction
+➬ arrows front-tilted-shadowed-white-rightwards-arrow direction
+➭ arrows heavy-lower-right-shadowed-white-rightwards-arrow direction
+➮ arrows heavy-upper-right-shadowed-white-rightwards-arrow direction
+➯ arrows notched-lower-right-shadowed-white-rightwards-arrow direction
+➱ arrows notched-upper-right-shadowed-white-rightwards-arrow direction
+➲ arrows circled-heavy-white-rightwards-arrow direction
+➳ arrows white-feathered-rightwards-arrow direction
+➴ arrows black-feathered-south-east-arrow direction
+➵ arrows black-feathered-rightwards-arrow direction
+➶ arrows black-feathered-north-east-arrow direction
+➷ arrows heavy-black-feathered-south-east-arrow direction
+➸ arrows heavy-black-feathered-rightwards-arrow direction
+➹ arrows heavy-black-feathered-north-east-arrow direction
+➺ arrows teardrop-barbed-rightwards-arrow direction
+➻ arrows heavy-teardrop-shanked-rightwards-arrow direction
+➼ arrows wedge-tailed-rightwards-arrow direction
+➽ arrows heavy-wedge-tailed-rightwards-arrow direction
+➾ arrows open-outlined-rightwards-arrow direction

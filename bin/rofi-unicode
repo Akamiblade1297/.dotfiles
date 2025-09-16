@@ -1,0 +1,2 @@
+#!/bin/bash
+cat $HOME/.config/rofi/unicode-characters | rofi -dmenu -p "Unicode" | awk '{print $1}' | xargs wtype | wl-copy
