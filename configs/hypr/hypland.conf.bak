@@ -317,26 +317,54 @@ bind = SUPER, slash,  exec,
 ##############################
 ### WINDOWS AND WORKSPACES ###
 ##############################
-windowrule = float, class:.*
 
-windowrule = tile,          initialClass:kitty
-windowrule = tile,          title:^(Prism Launcher.*)$
-windowrule = tile,          initialTitle:Telegram
-windowrule = tile,          initialTitle:Qt Creator
-windowrule = tile,          title:Steam
-windowrule = tile,          title:discord
-windowrule = tile,          class:firefox
+# Example windowrule v1
+# windowrule = float, ^(kitty)$
 
+# Example windowrule v2
+# windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
+
+windowrule = float,         class:Tor Browser
 windowrule = size 1280 720, class:Tor Browser
+
+windowrule = float,         title:Picture-in-Picture
 windowrule = pin,           title:Picture-in-Picture
-windowrule = pin,           class:float
-windowrule = size 1200 700, class:float
-# windowrule = opacity 0.9,   class:org.qt-project.qtcreator
+
+# windowrule = bordersize 2,  class:kitty
+windowrulev2 = float,        initialTitle:kitty, class:float
+windowrulev2 = pin,          initialTitle:kitty, class:float
+windowrulev2 = size 1200 700,initialTitle:kitty, class:float
+
+windowrulev2 = float,        class:kitty, title:termfilechooser
+windowrulev2 = size 1200 700,class:kitty, title:termfilechooser
+
+windowrule = float,         class:org.qbittorrent.qBittorrent
+
+windowrule = float,         class:org.telegram.desktop
+windowrule = tile,          initialTitle:Telegram
+
+windowrule = float,         class:org.qt-project.qtcreator
+windowrule = opacity 0.9,   class:org.qt-project.qtcreator
+windowrule = tile,          initialTitle:Qt Creator
+
+windowrule = float,         class:PortProton
+
+windowrule = float,         class:org.pulseaudio.pavucontrol
 windowrule = size 1200 700, class:org.pulseaudio.pavucontrol
 windowrule = stayfocused,   class:org.pulseaudio.pavucontrol
+
+windowrule = float,         class:^(.*xdg-desktop-portal.*)$
 windowrule = size 1200 700, class:^(.*xdg-desktop-portal.*)$
 windowrule = stayfocused,   class:^(.*xdg-desktop-portal.*)$
+
+windowrule = float,         class:steam
+windowrule = tile,          title:Steam
+
+windowrule = float,         class:org.kde.dolphin
 windowrule = size 1200 700, class:org.kde.dolphin
+
+windowrule = float,         class:org.prismlauncher.PrismLauncher
+windowrule = tile,          title:^(Prism Launcher.*)$
 
 windowrulev2 = suppressevent maximize, class:.*
 windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
