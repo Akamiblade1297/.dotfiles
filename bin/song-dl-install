@@ -2,7 +2,8 @@
 while [[ "$(ls ~/Music | wc -l)" -ne "$(cat ~/.config/mpd/song-dl.list | wc -l)" ]]; do
     cat ~/.config/mpd/song-dl.list | while read -r line; do
         IFS=";" read -r link name start end <<< "$line"
-        if ! [[ -f "~/Music/$name.mp3" ]]; then
+        if ! [[ -f "/home/a97/Music/$name.mp3" ]]; then
+	    echo "Installing $name"
             song-dl "$link" "$name" "$start" "$end" 0
         else
 	    echo "[INFO] Song is already installed"

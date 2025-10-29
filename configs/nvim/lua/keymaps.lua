@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 vim.g.localmapleader = ' '
 
-local opts = { noremap = true, silent = true }
+local opts = { noremap = true, silent = false }
 
 function ToggleRelativeNumber()
     vim.g.relativenumber = not vim.g.relativenumber

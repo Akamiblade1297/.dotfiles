@@ -9,3 +9,4 @@ if [[ $(tty) = '/dev/tty1' ]]; then
 elif [[ $COLORTERM = 'kmscon' ]]; then
     tmuxinator start default
 fi
+
